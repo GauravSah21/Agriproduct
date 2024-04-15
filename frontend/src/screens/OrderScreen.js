@@ -75,7 +75,7 @@ export default function OrderScreen() {
     loadingPay: false,
   });
 
-  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
+  // const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
   function createOrder(data, actions) {
     return actions.order
@@ -144,30 +144,8 @@ export default function OrderScreen() {
         dispatch({ type: 'DELIVER_RESET' });
       }
     } else {
-      const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get('/api/keys/paypal', {
-          headers: { authorization: `Bearer ${userInfo.token}` },
-        });
-        paypalDispatch({
-          type: 'resetOptions',
-          value: {
-            'client-id': clientId,
-            currency: 'USD',
-          },
-        });
-        paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
-      };
-      loadPaypalScript();
     }
-  }, [
-    order,
-    userInfo,
-    orderId,
-    navigate,
-    paypalDispatch,
-    successPay,
-    successDeliver,
-  ]);
+  }, [order, userInfo, orderId, navigate, successPay, successDeliver]);
 
   async function deliverOrderHandler() {
     try {
@@ -304,17 +282,6 @@ export default function OrderScreen() {
                 </ListGroup.Item>
                 {!order.isPaid && (
                   <ListGroup.Item>
-                    {isPending ? (
-                      <LoadingBox />
-                    ) : (
-                      <div>
-                        <PayPalButtons
-                          createOrder={createOrder}
-                          onApprove={onApprove}
-                          onError={onError}
-                        ></PayPalButtons>
-                      </div>
-                    )}
                     {loadingPay && <LoadingBox></LoadingBox>}
                   </ListGroup.Item>
                 )}

@@ -12,6 +12,7 @@ import { getError } from '../utils';
 import { Store } from '../Store';
 import CheckoutSteps from '../components/CheckoutSteps';
 import LoadingBox from '../components/LoadingBox';
+import axios from 'axios';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -65,6 +66,47 @@ export default function PlaceOrderScreen() {
           },
         }
       );
+
+      // khalti payment
+      const payload = {
+        return_url: 'http://localhost:3000',
+        website_url: 'http://localhost:3000',
+        amount: 1300,
+        purchase_order_id: 'test12',
+        purchase_order_name: 'test',
+        customer_info: {
+          name: 'Khalti Bahadur',
+          email: 'example@gmail.com',
+          phone: '9800000123',
+        },
+        amount_breakdown: [
+          { label: 'Mark Price', amount: 1000 },
+          { label: 'VAT', amount: 300 },
+        ],
+        product_details: [
+          {
+            identity: '1234567890',
+            name: 'Khalti logo',
+            total_price: 1300,
+            quantity: 1,
+            unit_price: 1300,
+          },
+        ],
+        merchant_username: 'merchant_name',
+        merchant_extra: 'merchant_extra',
+      };
+
+      await axios
+        .post('https://a.khalti.com/api/v2/epayment/initiate/', payload, {
+          headers: {
+            Authorization: `Key ${process.env.REACT_APP_KHALTI_SECRET_KEY}`,
+          },
+        })
+        .then((data) => (window.location.href = data.data.payment_url))
+        .catch((err) => {
+          throw err;
+        });
+
       ctxDispatch({ type: 'CART_CLEAR' });
       dispatch({ type: 'CREATE_SUCCESS' });
       localStorage.removeItem('cartItems');
