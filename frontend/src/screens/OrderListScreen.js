@@ -118,7 +118,7 @@ export default function OrderListScreen() {
                 <td>{order.user ? order.user.name : 'DELETED USER'}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>{order.totalPrice.toFixed(2)}</td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
+                <td>{order.isPaid ? 'Yes' : 'No'}</td>
 
                 <td>
                   {order.isDelivered
