@@ -7,7 +7,26 @@ $ cd AgriProduct
 
 ### 2. Create .env File
 
-- duplicate .env.example in backend folder and rename it to .env
+- create .env in backend and frontend folder the veriable 
+
+ ```
+Backend .env
+
+JWT_SECRET=
+MONGODB_URI=
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_URL=
+CLOUDINARY_API_SECRET=
+GOOGLE_API_KEY=
+MAILGUN_DOMIAN=
+MAILGUN_API_KEY=
+
+Frontend .env
+REACT_APP_KHALTI_PUBLIC_KEY=
+REACT_APP_KHALTI_SECRET_KEY=
+
+```
 
 ### 3. Setup MongoDB
 
