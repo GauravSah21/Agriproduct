@@ -29,6 +29,7 @@ orderRouter.post(
       shippingPrice: req.body.shippingPrice,
       taxPrice: req.body.taxPrice,
       totalPrice: req.body.totalPrice,
+      isPaid:req.body.isPaid,
       user: req.user._id,
     });
 
