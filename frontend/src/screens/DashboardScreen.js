@@ -8,6 +8,8 @@ import MessageBox from '../components/MessageBox';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -68,7 +70,7 @@ export default function DashboardScreen() {
                       ? summary.users[0].numUsers
                       : 0}
                   </Card.Title>
-                  <Card.Text> Users</Card.Text>
+                  <Card.Text> <Link to="/admin/users">Users👲</Link> </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -80,7 +82,7 @@ export default function DashboardScreen() {
                       ? summary.orders[0].numOrders
                       : 0}
                   </Card.Title>
-                  <Card.Text> Orders</Card.Text>
+                  <Card.Text> <Link to="/admin/users">Orders📦</Link> </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -88,12 +90,11 @@ export default function DashboardScreen() {
               <Card>
                 <Card.Body>
                   <Card.Title>
-                    $
-                    {summary.orders && summary.users[0]
+                    NPR {summary.orders && summary.users[0]
                       ? summary.orders[0].totalSales.toFixed(2)
                       : 0}
                   </Card.Title>
-                  <Card.Text> Orders</Card.Text>
+                  <Card.Text>Worth Sold💸😎</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
