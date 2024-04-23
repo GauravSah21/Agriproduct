@@ -1,5 +1,11 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.semi": true,
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "liveshare.accessibility.accessibilityFeaturesEnabled": "on",
+  "liveshare.connectionMode": "direct",
+  "liveshare.diagnosticMode": true,
+  "liveshare.anonymousGuestApproval": "accept",
+  "liveshare.alwaysFollowHost": true,
+  "liveshare.guestApprovalRequired": true
 }

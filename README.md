@@ -7,8 +7,8 @@ $ cd AgriProduct
 
 ### 2. Create .env File
 
-- duplicate .env.example in backend folder and rename it to .env
-
+- created  to .env in backend an frontend
+and
 ### 3. Setup MongoDB
 
 - Local MongoDB
