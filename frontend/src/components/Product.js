@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Rating from './Rating';
 import axios from 'axios';
 import { useContext } from 'react';
@@ -8,11 +8,13 @@ import { Store } from '../Store';
 
 function Product(props) {
   const { product } = props;
-
+  const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { cartItems },
+    userInfo
   } = state;
+  
 
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === product._id);
@@ -44,7 +46,15 @@ function Product(props) {
             Out of stock
           </Button>
         ) : (
-          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+          (!userInfo?.isAdmin ? 
+            <Button onClick={() => addToCartHandler(product)}>Add to Cart</Button>
+              :
+                <Button
+                  onClick={() => navigate(`/admin/product/${product._id}`)}
+                >
+                Edit Product
+              </Button>
+          )
         )}
       </Card.Body>
     </Card>

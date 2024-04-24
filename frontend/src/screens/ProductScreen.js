@@ -254,17 +254,29 @@ function ProductScreen() {
 
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
-                    <div className="d-grid">
-                      <Button onClick={addToCartHandler} variant="primary">
-                        Add to Cart
-                      </Button>
-                    </div>
-                    <div className="d-grid">
-                      {/* //TODO: add payment  */}
-                      <Button variant="primary" onClick={handleKhaltiPayment}>
-                        pay with khalti
-                      </Button>
-                    </div>
+                    {!userInfo?.isAdmin ? 
+                      <>
+                        <div className="d-grid">
+                          <Button onClick={addToCartHandler} variant="primary">
+                            Add to cart
+                          </Button>
+                        </div>
+                        <p></p>
+                        <div className="d-grid">
+                          {/* //TODO: add payment  */}
+                          <Button variant="primary" onClick={handleKhaltiPayment}>
+                            pay with khalti
+                          </Button>
+                        </div>
+                      </>
+                      :
+                      <div className="d-grid">
+                          <Button onClick={() => { navigate(`/admin/product/${product._id}`)}} >
+                            Edit Product
+                          </Button>
+                      </div>
+                    }
+                    
                   </ListGroup.Item>
                 )}
               </ListGroup>

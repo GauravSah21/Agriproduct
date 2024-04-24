@@ -93,7 +93,7 @@ function App() {
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
                 <Nav className="me-auto  w-100  justify-content-end">
-                  {!userInfo.isAdmin && <Link to="/cart" className="nav-link">
+                  {!userInfo?.isAdmin && <Link to="/cart" className="nav-link">
                     Cart
                     {cart.cartItems.length > 0 && (
                       <Badge pill bg="danger">
@@ -106,7 +106,7 @@ function App() {
                       <LinkContainer to="/profile">
                         <NavDropdown.Item>User Profile</NavDropdown.Item>
                       </LinkContainer>
-                      {!userInfo.isAdmin && 
+                      {!userInfo?.isAdmin && 
                         <LinkContainer to="/orderhistory">
                           <NavDropdown.Item>Order History</NavDropdown.Item>
                         </LinkContainer>
