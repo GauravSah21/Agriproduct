@@ -264,20 +264,20 @@ export default function SearchScreen() {
               <div>
                 {[...Array(pages).keys()].map((x) => (
                   <LinkContainer
-                    key={x + 1}
-                    className="mx-1"
-                    to={{
-                      pathname: '/search',
-                      seacrh: getFilterUrl({ page: x + 1 }, true),
-                    }}
+                  key={x + 1}
+                  className="mx-1"
+                  to={{
+                    pathname: '/search',
+                    search: getFilterUrl({ page: x + 1 }, true),
+                  }}
+                >
+                  <Button
+                    className={Number(page) === x + 1 ? 'text-bold' : ''}
+                    variant="light"
                   >
-                    <Button
-                      className={Number(page) === x + 1 ? 'text-bold' : ''}
-                      variant="light"
-                    >
-                      {x + 1}
-                    </Button>
-                  </LinkContainer>
+                    {x + 1}
+                  </Button>
+                </LinkContainer>
                 ))}
               </div>
             </>
