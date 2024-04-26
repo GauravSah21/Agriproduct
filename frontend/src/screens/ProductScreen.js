@@ -264,9 +264,9 @@ function ProductScreen() {
                         <p></p>
                         <div className="d-grid">
                           {/* //TODO: add payment  */}
-                          <Button variant="primary" onClick={handleKhaltiPayment}>
+                          {/* <Button variant="primary" onClick={handleKhaltiPayment}>
                             pay with khalti
-                          </Button>
+                          </Button> */}
                         </div>
                       </>
                       :
