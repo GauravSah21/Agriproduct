@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
 
 export default function CartScreen() {
   const navigate = useNavigate();
@@ -50,51 +51,48 @@ export default function CartScreen() {
             </MessageBox>
           ) : (
             <ListGroup>
-              {cartItems.map((item) => (
-                <ListGroup.Item key={item._id}>
-                  <Row className="align-items-center">
-                    <Col md={4}>
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="img-fluid rounded img-thumbnail"
-                      ></img>{' '}
-                      <Link to={`/product/${item.slug}`}>{item.name}</Link>
-                    </Col>
-                    <Col md={3}>
-                      <Button
-                        onClick={() =>
-                          updateCartHandler(item, item.quantity - 1)
-                        }
-                        variant="light"
-                        disabled={item.quantity === 1}
-                      >
-                        <i className="fas fa-minus-circle"></i>
-                      </Button>{' '}
-                      <span>{item.quantity}</span>{' '}
-                      <Button
-                        variant="light"
-                        onClick={() =>
-                          updateCartHandler(item, item.quantity + 1)
-                        }
-                        disabled={item.quantity === item.countInStock}
-                      >
-                        <i className="fas fa-plus-circle"></i>
-                      </Button>
-                    </Col>
-                    <Col md={3}>NPR {item.price}</Col>
-                    <Col md={2}>
-                      <Button
-                        onClick={() => removeItemHandler(item)}
-                        variant="light"
-                      >
-                        <i className="fas fa-trash"></i>
-                      </Button>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
+    {cartItems.map((item) => (
+      <ListGroup.Item key={item._id}>
+        <Row className="align-items-center">
+          <Col md={4}>
+            {/* ... other code */}
+          </Col>
+          <Col md={3}>
+            <Button
+              onClick={() => updateCartHandler(item, item.quantity - 1)}
+              variant="light"
+              disabled={item.quantity === 1}
+            >
+              <i className="fas fa-minus-circle"></i>
+            </Button>{' '}
+            <Form.Control
+              type="number"
+              value={item.quantity}
+              onChange={(e) =>
+                updateCartHandler(item, parseInt(e.target.value, 10))
+              }
+              style={{ width: '60px', display: 'inline' }}
+            />{' '}
+            <Button
+              variant="light"
+              onClick={() => updateCartHandler(item, item.quantity + 1)}
+              disabled={item.quantity === item.countInStock}
+            >
+              <i className="fas fa-plus-circle"></i>
+            </Button>
+          </Col>
+          <Col md={3}>{/* ... other code */}</Col>
+          <Col md={2}>
+  <Button
+    onClick={() => removeItemHandler(item)}
+    variant="light"
+  >
+    <i className="fas fa-trash"></i>
+  </Button>
+</Col>        </Row>
+      </ListGroup.Item>
+    ))}
+  </ListGroup>
           )}
         </Col>
         <Col md={4}>

@@ -47,8 +47,7 @@ function HomeScreen() {
       <Helmet>
         <title>AgriProduct</title>
       </Helmet>
-      <h1>Featured Products</h1>
-      <div className="products">
+      <h2 style={{ marginBottom: '2rem' }}>Featured Products</h2><div className="products">
         {loading ? (
           <LoadingBox />
         ) : error ? (

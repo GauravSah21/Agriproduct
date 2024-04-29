@@ -82,7 +82,7 @@ export default function DashboardScreen() {
                       ? summary.orders[0].numOrders
                       : 0}
                   </Card.Title>
-                  <Card.Text> <Link to="/admin/users">Orders📦</Link> </Card.Text>
+                  <Card.Text> <Link to="/admin/orders">Orders📦</Link> </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
