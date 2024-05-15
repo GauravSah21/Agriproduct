@@ -32,7 +32,6 @@ REACT_APP_KHALTI_SECRET_KEY=
 
 ```
 
->>>>>>> c8c4f1adfb88462ab9d7d42b4a3b1ff3d7e4485c
 ### 3. Setup MongoDB
 
 - Local MongoDB
