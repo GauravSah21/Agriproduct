@@ -16,6 +16,7 @@ export default function SignupScreen() {
   const redirect = redirectInUrl ? redirectInUrl : '/';
 
   const [name, setName] = useState('');
+  const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -59,13 +60,17 @@ export default function SignupScreen() {
   <Form.Label>Name</Form.Label>
   <Form.Control 
     onChange={(e) => {
-      // Check if the input value contains any numbers
-      if (!/\d/.test(e.target.value)) {
+      // Check if the input value contains only letters and spaces
+      if (/^[a-zA-Z\s]*$/.test(e.target.value)) {
         setName(e.target.value);
+        setError(''); // Clear the error message
+      } else {
+        setError('Please input your real name');
       }
     }} 
     required 
   />
+  {error && <div className="error-message">{error}</div>}
 </Form.Group>
 
         <Form.Group className="mb-3" controlId="email">
