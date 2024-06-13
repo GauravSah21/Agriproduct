@@ -79,6 +79,8 @@ function ProductScreen() {
       window.alert('Sorry. Product is out of stock');
       return;
     }
+    // Decrease the countInStock of the product
+    product.countInStock -= quantity;
     ctxDispatch({
       type: 'CART_ADD_ITEM',
       payload: { ...product, quantity },

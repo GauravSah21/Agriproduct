@@ -183,13 +183,18 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Price</Form.Label>
-            <Form.Control
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              required
-            />
-          </Form.Group>
+  <Form.Label>Price</Form.Label>
+  <Form.Control
+    value={price}
+    onChange={(e) => {
+      // Check if the input value is less than or equal to zero
+      if (e.target.value > 0 || e.target.value === '') {
+        setPrice(e.target.value);
+      }
+    }} 
+    required
+  />
+</Form.Group>
           <Form.Group className="mb-3" controlId="image">
             <Form.Label>Image File</Form.Label>
             <Form.Control

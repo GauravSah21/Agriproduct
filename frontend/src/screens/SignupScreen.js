@@ -55,10 +55,18 @@ export default function SignupScreen() {
       </Helmet>
       <h1 className="my-3">Sign Up</h1>
       <Form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control onChange={(e) => setName(e.target.value)} required />
-        </Form.Group>
+      <Form.Group className="mb-3" controlId="name">
+  <Form.Label>Name</Form.Label>
+  <Form.Control 
+    onChange={(e) => {
+      // Check if the input value contains any numbers
+      if (!/\d/.test(e.target.value)) {
+        setName(e.target.value);
+      }
+    }} 
+    required 
+  />
+</Form.Group>
 
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
