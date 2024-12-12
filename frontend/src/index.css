@@ -202,3 +202,15 @@ button.thumbnail {
 .nav-link:hover {
   color: lightgreen;
 }
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: lightgreen;
+  border: 1px solid lightgreen;
+}
+
+.btn-outline-primary:hover {
+  background-color: darkgreen;
+  color: #ffffff;
+  border-color: darkgreen;
+}
