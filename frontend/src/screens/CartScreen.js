@@ -56,7 +56,12 @@ export default function CartScreen() {
       <ListGroup.Item key={item._id}>
         <Row className="align-items-center">
           <Col md={4}>
-            {/* ... other code */}
+            <img
+              src={item.image}
+              alt={item.name}
+              className="img-fluid rounded img-thumbnail"
+            />{' '}
+            <Link to={`/product/${item._id}`}>{item.name}</Link>
           </Col>
           <Col md={3}>
             <Button
