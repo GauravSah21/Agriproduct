@@ -45,7 +45,7 @@ function HomeScreen() {
   return (
     <div>
       <Helmet>
-        <title>AgriProduct</title>
+        <title>Cropsay</title>
       </Helmet>
       <h2 style={{ marginBottom: '2rem' }}>Featured Products</h2><div className="products">
         {loading ? (

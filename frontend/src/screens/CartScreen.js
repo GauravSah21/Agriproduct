@@ -61,7 +61,12 @@ export default function CartScreen() {
               alt={item.name}
               className="img-fluid rounded img-thumbnail"
             />{' '}
-            <Link to={`/product/${item._id}`}>{item.name}</Link>
+            <Link
+              to={`/product/${item._id}`}
+              style={{ color: 'white', backgroundColor: 'green', padding: '5px', borderRadius: '5px', textDecoration: 'none' }}
+            >
+              {item.name}
+            </Link>
           </Col>
           <Col md={3}>
             <Button
