@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "ms-vsliveshare.vsliveshare"
+        "ms-vsliveshare.vsliveshare",
+        "github.copilot-chat"
     ]
 }

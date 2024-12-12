@@ -34,6 +34,15 @@ main {
   color: #ffc000;
 }
 
+.rating span {
+  color: black;
+  text-decoration: none;
+}
+
+.rating span:hover {
+  color: darkgreen;
+}
+
 .product {
   border: 1px #404040 solid;
   margin: 1rem;
@@ -213,4 +222,13 @@ button.thumbnail {
   background-color: darkgreen;
   color: #ffffff;
   border-color: darkgreen;
+}
+
+.card-title {
+  color: black;
+  text-decoration: none;
+}
+
+.card-title:hover {
+  color: darkgreen;
 }

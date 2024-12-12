@@ -1,0 +1,9 @@
+.product-name {
+  color: black;
+  text-decoration: none;
+}
+
+.product-name:hover {
+  color: green;
+  text-decoration: underline;
+}

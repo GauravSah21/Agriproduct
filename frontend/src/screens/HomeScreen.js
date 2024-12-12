@@ -6,7 +6,7 @@ import Product from "../components/Product";
 import { Helmet } from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-// import data from '../data';
+import './HomeScreen.css';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -47,7 +47,7 @@ function HomeScreen() {
       <Helmet>
         <title>Cropsay</title>
       </Helmet>
-      <h2 style={{ marginBottom: '2rem' }}>Featured Products</h2><div className="products">
+      <h2 style={{ marginBottom: '2rem' }}>Cropsay Present</h2><div className="products">
         {loading ? (
           <LoadingBox />
         ) : error ? (
